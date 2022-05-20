@@ -49,7 +49,7 @@ function displayWeatherData(city) {
       console.log(lon)
       //set UV index ajax
       $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon,
+        url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + API_KEY + "&lat=" + lat + "&lon=" + lon,
         method: "GET"
       }).then(function (response) {
         console.log(response);
@@ -83,7 +83,7 @@ function displayWeatherData(city) {
         }
       })
       /* Getting the 5 day forecast*/
-      var forecastURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey
+      var forecastURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + API_KEY
 
       $.ajax({
         url: forecastURL,
@@ -122,8 +122,6 @@ function displayWeatherData(city) {
           tempforecast.text("Temp: " + Farenheit.toPrecision(4) + " °F")
           humidforecast.text("Humidity: " + response.daily[i].humidity + "%")
 
-
-
           //apending our forecast elements
           $(".five-day-forecast").append(cardforecast)
           $(cardforecast).append(Headerforecast)
@@ -150,10 +148,6 @@ function renderSearchButton() {
     results.text(city)
     $(".form").append(results);
 
-
-
-
-
     console.log(city)
 
     cities.push(City)
@@ -167,12 +161,8 @@ function renderSearchButton() {
       var citiesString = JSON.stringify(cities)
       localStorage.setItem("allCities", citiesString)
     }
-
-
     console.log(cities)
-
   })
-
 }
 
 function renderCitiesLocalStorage() {
@@ -190,21 +180,11 @@ function renderCitiesLocalStorage() {
       displayWeatherData($(this).attr("data-name")); // using this inside an onclick $(this) = button being clicked 
     })
   }
-
-
 }
-
 
 if (localStorage.getItem("allCities")) {
   renderCitiesLocalStorage();
-
 }
-
-
-
-
-
-
 
 renderSearchButton();
 
