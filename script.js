@@ -134,3 +134,44 @@ function displayWeatherData(city) {
       });
     })
 };
+
+function renderSearchButton() {
+
+  $(".searchBtn").on("click", function () {
+    event.preventDefault();
+
+    city = $("#search-bar").val().trim();
+    displayWeatherData(city);
+
+
+    var results = $("<p>");
+    results.addClass("results");
+    results.attr("data-name");
+    results.text(city)
+    $(".form").append(results);
+
+
+
+
+
+    console.log(city)
+
+    cities.push(City)
+
+    if (localStorage.getItem("allCities")) {
+      var citiesString = [...cities, ...JSON.parse(localStorage.getItem("allCities"))]
+      var noDuplicates = citiesString.filter((item, index) => citiesString.indexOf(item) === index);
+      noDuplicates = JSON.stringify(noDuplicates);
+      localStorage.setItem("allCities", noDuplicates)
+    } else {
+      var citiesString = JSON.stringify(cities)
+      localStorage.setItem("allCities", citiesString)
+    }
+
+
+    console.log(cities)
+
+  })
+
+}
+
