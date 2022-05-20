@@ -175,3 +175,36 @@ function renderSearchButton() {
 
 }
 
+function renderCitiesLocalStorage() {
+  var citiesArray = JSON.parse(localStorage.getItem("allCities"))
+
+  for (var i = 0; i < citiesArray.length; i++) {
+
+    var results = $("<p>");
+    results.addClass("results");
+    results.attr("data-name", citiesArray[i]);
+    results.text(citiesArray[i]);
+    $(".form").append(results);
+    results.on("click", function () {
+      event.preventDefault();
+      displayWeatherData($(this).attr("data-name")); // using this inside an onclick $(this) = button being clicked 
+    })
+  }
+
+
+}
+
+
+if (localStorage.getItem("allCities")) {
+  renderCitiesLocalStorage();
+
+}
+
+
+
+
+
+
+
+renderSearchButton();
+
