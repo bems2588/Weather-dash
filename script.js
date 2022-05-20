@@ -4,6 +4,7 @@ var cities = [];
 console.log(cities);
 
 
-function displayWeatherData() {
-  var city = $("#search-bar").val().trim()
+function displayWeatherData(city) {
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + "q=" + city + "&appid=" + API_KEY;
+
 };
