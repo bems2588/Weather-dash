@@ -14,6 +14,10 @@ This weather application was developed to easily access the weather report on yo
 ## API's
 * OpenWeather - https://openweathermap.org/
 
+## Image 
+
+![Weather Dash](/images/Screen%20Shot%202022-05-20%20at%2015.31.06.png)
+
 ## Link
 
  https://bems2588.github.io/Weather-dash/
